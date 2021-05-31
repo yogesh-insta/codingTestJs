@@ -8,13 +8,18 @@ const sort = (array) => {
     if (!array || !Array.isArray(array)) {
         throw new Error('invalid array')
     }
+    let count = 0;
     for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length; j++) {
-            if (array[i] < array[j]) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] > array[j]) {
+                count++;
                 swap(array, i, j);
             }
         }
     }
+    console.info(`Array is sorted in ${count} swaps.`);
+    console.info(`First Element: ${array[0]}`);
+    console.info(`Last Element: ${array[array.length - 1]}`);
     return array;
 }
 
@@ -24,5 +29,4 @@ const swap = (array, i, j) => {
     array[i] = temp;
 }
 
-console.info(sort([3, 4, 2, 6, 5]))
-console.info(sort([2, 1, 3, 9, 6]))
+console.info(sort([1, 2, 3]))

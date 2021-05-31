@@ -24,3 +24,5 @@ const merge = (a1, a2) => {
 
 console.info(sort([3, 4, 2, 6, 5]))
 console.info(sort([2, 1, 3, 9, 6]))
+
+module.exports = sort;
