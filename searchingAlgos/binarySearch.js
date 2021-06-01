@@ -10,7 +10,7 @@ const search = (array, element) => {
         throw new Error('invalid array')
     }
     let low = 0, high = array.length, result;
-    while (!result) {
+    while (result === undefined) {
         let m = Math.floor(low + (high - low) / 2);
         array[m] === element ? result = m : array[m] < element ? low = m + 1 : high = m - 1;
     }

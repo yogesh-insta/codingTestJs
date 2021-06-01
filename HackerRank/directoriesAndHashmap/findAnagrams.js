@@ -7,7 +7,7 @@
  */
 
 
-const findAllSubStrings = require('./findAllSubStrings');
+const findAllSubStrings = require('../findAllSubStrings');
 
 const findAnagrams = (str) => {
     const p = findAllSubStrings(str);
