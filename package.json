@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yogesh-insta/codingTestJs/issues"
   },
-  "homepage": "https://github.com/yogesh-insta/codingTestJs#readme"
+  "homepage": "https://github.com/yogesh-insta/codingTestJs#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
