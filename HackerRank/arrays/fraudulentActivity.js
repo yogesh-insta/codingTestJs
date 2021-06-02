@@ -14,12 +14,10 @@ function activityNotifications(expenditure, d) {
         }
         //delete the exp[i-d] from trail
         let index = search(trail, expenditure[i - d]);
-        //console.info('deleting from ' + index);
         trail.splice(index, 1);
 
         //insert exp[i] in trail
         index = search(trail, expenditure[i]);
-        //console.info('inserting at ' + index);
         trail.splice(index, 0, expenditure[i]);
     }
     return noticeCount;
@@ -27,9 +25,6 @@ function activityNotifications(expenditure, d) {
 
 
 const search = (array, element) => {
-    if (!array || !Array.isArray(array)) {
-        throw new Error('invalid array')
-    }
     let low = 0, high = array.length, result;
     while (result === undefined && low < high) {
         let m = Math.floor(low + (high - low) / 2);
@@ -41,14 +36,13 @@ const search = (array, element) => {
 const findLimit = (arr) => {
     let median = 0;
     if (arr.length % 2 === 0) {
-        median = Math.ceil(arr[arr.length / 2] + arr[(arr.length / 2) + 1]) / 2;
+        median = (arr[arr.length / 2] + arr[(arr.length / 2) - 1]);
     } else {
-        median = arr[Math.floor(arr.length / 2)];
+        median = arr[Math.floor(arr.length / 2)] * 2;
     }
-    const limit = median * 2;
-    return limit;
+    return median;
 }
 
 //console.info(activityNotifications([1, 2, 3, 4, 4], 4));//0
-//console.info(activityNotifications([2, 3, 4, 2, 3, 6, 8, 4, 5], 5));//2
+//console.info(activityNotifications([2, 3, 4, 2, 3, 80, 8, 40, 5, 8, 50], 4));//2
 console.info(activityNotifications(data, 10000));
